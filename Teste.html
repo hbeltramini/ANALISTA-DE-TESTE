@@ -1,0 +1,29 @@
+#language: pt
+
+Recurso: Cadastrar usuários
+	Para cadastrar dados dos usuários
+	Como um usuário do sistema
+Eu quero cadastrar nomes válidos no sistema
+
+@Valido
+Esboço do Cenário: Cadastrar Usuário corretamente
+	Dado Eu acesso o cadastro de usuários
+	E Eu preenchi o formulário com <Nome> <E-mail> <Senha>
+	Quando Eu clico em Cadastrar
+	Então <Nome><E-mail> <Senha> aparecem na tabela de resultados
+
+	Exemplos:
+	| Nome 		     | E-mail 			        | Senha |
+	|”Helena Beltramini” |”hbeltramini@gmail.com”|”Passeinoteste10” |
+	|”Marcelo Vilas Boas”|”mboas10@hotmail.com”  |”Passounoteste9”  |
+
+@Invalido1
+Esboço do Cenário: Cadastrar Usuário sem nome
+	Dado Eu acesso o cadastro de usuários
+	E Eu preenchi o formulário com <Nome> <E-mail> <Senha>
+	Quando Eu clico em Cadastrar
+	Então a tela retorna a mensagem “O campo e-mail é obrigatório” e “O campo senha é obrigatório”.
+
+	Exemplos:
+	| Nome 		     | E-mail 			        | Senha 	   |
+	|	             |”hbeltramini@gmail.com”           |”Passeinoteste10” |
